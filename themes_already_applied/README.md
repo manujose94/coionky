@@ -8,7 +8,7 @@
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/daftpunk.png)
 
 ### Red
-![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/green.png)
+![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/red.png)
 
 ### Purple
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/purple.png)
