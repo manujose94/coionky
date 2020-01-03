@@ -2,14 +2,14 @@
 
 All this coinky is based on [coionky](https://github.com/0i0/coionky) of [0i0](https://github.com/0i0)
 
-This had some problems to work in Ubuntu 19.04 or 19.10. Finally, I  was able to make it work well. In addition to this, I added to this Conky of new features and easier installation thanks to a shell script. 
+This had some problems when it come to working in Ubuntu 19.04  or 19.10. Finally,I was finally able to make it work well. In addition to this, I added to this Conky of new features and easier installation thanks to a shell script. 
 
 ## New Version
 ---
 
 In the following image the result:
 
-![Screenshots](https://github.com/manujose94/coionky/themes_already_applied/green.png)
+![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/green.png)
 
 **Here the list of the changes:**
 
