@@ -1,0 +1,118 @@
+conky.config = {
+  -- -- Conky settings -- #
+	    background = false,
+	    update_interval = 1,
+
+	    cpu_avg_samples = 2,
+	    net_avg_samples = 2,
+
+	    override_utf8_locale = true,
+
+	    double_buffer = true,
+	    no_buffers = true,
+
+      text_buffer_size = 32768,
+      imlib_cache_size = 0,
+
+  -- -- Colors
+
+  		color0 = "ff9200",
+  		color1 = "efa31d",
+  		color2 = "883f94",
+  		color3 = "dd9d8a",
+
+  -- -- Window specifications -- #
+	    own_window = true,
+      own_window_type = 'dock',
+      own_window_argb_visual = true,
+      own_window_argb_value = 0,
+	    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+      own_window_title = 'clicky',
+
+	    border_inner_margin = 50,
+	    border_outer_margin = 0,
+
+
+  --minimum_size 1100 700
+	    maximum_width = 700,
+
+	    alignment = 'top_right',
+	    gap_x = 0,
+	    gap_y = 90,
+
+  -- -- Graphics settings -- #
+	    draw_shades = false,
+	    draw_outline = false,
+	    draw_borders = false,
+	    draw_graph_borders = false,
+
+  -- -- Text settings -- #
+	    use_xft = true,
+	    font = 'Ubuntu Mono Bold:size=10',
+	    xftalpha = 0.8,
+	    top_name_width = 10,
+      --Ícones: ${font Conky Icons by Carelli:size=14}
+
+	    uppercase = false,
+
+	    default_color = '#FFFFFF',
+
+      --own_window_transparent yes
+	    own_window_colour = '#000000',
+	    minimum_width = 300, minimum_height = 700,
+
+      --CORRECT THIS PATH
+      lua_load = '~/.config/conky/rings.lua',
+      lua_draw_hook_pre = 'conky_rings',
+};
+ -- -- Conky network, if not show nothing, you must change  wlp62s0 to your connection name (ifconfig)-- #
+conky.text = [[${font ubuntu Mono:size=12}
+  ${downspeedgraph enp4s0 25,100 FFFFFF FFFFFF}${color #FFFFFF} Dw${color0}${downspeed enp4s0}
+  ${upspeedgraph   enp4s0 25,100 FFFFFF FFFFFF}${color #FFFFFF} Up${color3}${upspeed enp4s0}
+  ${offset 120}${voffset 0}${font Ubuntu Mono Bold:size=8}${color #FFFFFF}TDown ${color0}${totaldown enp4s0}
+  
+  ${offset  25}${voffset 80}${font Ubuntu Mono Bold:size=12}${color #FFFFFF}CPU
+  ${font Ubuntu Mono Bold:size=9}
+  ${offset  140}${voffset  45}${color0}${exec sensors | grep -o 'Core 0:        +[0-9].' | sed -r 's/0:|[^0-9]//g'}°
+  ${offset  175}${voffset -10}${color1}${exec sensors | grep -o 'Core 1:        +[0-9].' | sed -r 's/1:|[^0-9]//g'}°
+  ${offset  210}${voffset -10}${color2}${exec sensors | grep -o 'Core 2:        +[0-9].' | sed -r 's/2:|[^0-9]//g'}°
+  ${offset  250}${voffset -10}${color3}${exec sensors | grep -o 'Core 3:        +[0-9].' | sed -r 's/3:|[^0-9]//g'}°
+  ${font Ubuntu Mono Bold:size=10}
+  ${if_existing /sys/class/power_supply/BAT0/present} ${offset  230}${voffset 35}${color}Battery
+  ${else}
+  ${if_existing /sys/class/power_supply/BAT1/present} ${offset  230}${voffset 35}${color}Battery
+  ${endif}
+#------------+
+# Bar Battery |
+#------------+
+  #${if_existing /sys/class/power_supply/BAT0/present} Battery ${alignr}${battery_percent BAT0}% ${battery_bar 10,250 BAT1}
+  #${else}
+  #${if_existing /sys/class/power_supply/BAT1/present} Battery ${alignr}${battery_percent BAT1}% ${battery_bar 10,250 BAT1}
+  #${else}
+  #Battery status: Not present
+  #External power: ${acpiacadapter}${endif}
+
+  ${goto 20}${font Ubuntu Mono Bold:size=10}${color0}RAM
+  ${goto 20}${color #FFFFFF}$mem/$memmax${font Ubuntu Mono Bold:size=8}${color cccccc}($memperc%)
+  ${font Ubuntu Mono Bold:size=10}
+  ${goto 20}${color0}STORAGE${color #FFFFFF}
+  ${font Ubuntu Mono Bold:size=8}
+  ${goto 20}${exec df -h | grep "/dev/sda7" | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
+  ${goto 20}${exec df -h | grep "/dev/sdb1" | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
+  ${goto 20}${exec df -h | grep "/dev/sda4"      | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
+  ${color0}${font Ubuntu Mono Bold:size=10}
+  ${goto 20}Name ${goto 200}Pid${goto 280}Cpu%${goto 360}Mem%${color}
+  ${goto 20}${top name 1} ${goto 185}${top pid 1}${goto 255}${top cpu 1}${goto 335}${top mem 1}
+  ${goto 20}${top name 2} ${goto 185}${top pid 2}${goto 255}${top cpu 2}${goto 335}${top mem 2}
+  ${goto 20}${top name 3} ${goto 185}${top pid 3}${goto 255}${top cpu 3}${goto 335}${top mem 3}
+  ${goto 20}${top name 4} ${goto 185}${top pid 4}${goto 255}${top cpu 4}${goto 335}${top mem 4}
+  ${goto 20}${top name 5} ${goto 185}${top pid 5}${goto 255}${top cpu 5}${goto 335}${top mem 5}
+  ${color0}
+  ${goto 50}Crypto${color}
+  ${goto 50}${execi 60  curl -s https://api.coinmarketcap.com/v1/ticker/ |
+                        jq '.[]|select((.rank|tonumber)<6)|{id,price_usd}|.id+" "+.price_usd'|
+                        awk '{gsub(/"/, "", $0);print substr($1,0,10) "/usd\t" $2}'
+             }
+
+
+]];
