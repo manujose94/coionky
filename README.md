@@ -13,7 +13,7 @@ In the following image the result:
 
 **All themes applied [HERE](https://github.com/manujose94/coionky/blob/master/themes_already_applied/README.md)**
 
-**Here the list of the changes:**
+*Here the list of the changes:*
 
 ### Installation:
 
