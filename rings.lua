@@ -1,8 +1,8 @@
 
-cpu0 = 0x0c213f
-cpu1 = 0x1d3344
-cpu2 = 0x24415b
-cpu3 = 0x9cb8d7
+cpu0 = 0x2778b0
+cpu1 = 0x4469e1
+cpu2 = 0x3e3fce
+cpu3 = 0x5353ed
 gpu = 0x3f5c89
 cpu_x = 100
 cpu_y = 260

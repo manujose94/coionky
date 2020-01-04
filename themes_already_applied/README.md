@@ -16,5 +16,8 @@
 ### Blue
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/blue.png)
 
+### Bluedark
+![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/bluedark.png)
+
 ### Green
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/green.png)

@@ -16,10 +16,10 @@ conky.config = {
 
   -- -- Colors
 
-  		color0 = "0c213f",
-  		color1 = "1d3344",
-  		color2 = "24415b",
-  		color3 = "9cb8d7",
+  		color0 = "2778b0",
+  		color1 = "4469e1",
+  		color2 = "3e3fce",
+  		color3 = "5353ed",
 
   -- -- Window specifications -- #
 	    own_window = true,
@@ -48,7 +48,7 @@ conky.config = {
 
   -- -- Text settings -- #
 	    use_xft = true,
-	    font = 'Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold:size=10',
+	    font = 'Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=10',
 	    xftalpha = 0.8,
 	    top_name_width = 10,
       --Ícones: ${font Conky Icons by Carelli:size=14}
@@ -69,15 +69,15 @@ conky.config = {
 conky.text = [[${font ubuntu Mono:size=12}
   ${downspeedgraph enp4s0 25,100 FFFFFF FFFFFF}${color #FFFFFF} Dw${color0}${downspeed enp4s0}
   ${upspeedgraph   enp4s0 25,100 FFFFFF FFFFFF}${color #FFFFFF} Up${color3}${upspeed enp4s0}
-  ${offset 120}${voffset 0}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=8}${color #FFFFFF}TDown ${color0}${totaldown enp4s0}
+  ${offset 120}${voffset 0}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=8}${color #FFFFFF}TDown ${color0}${totaldown enp4s0}
   
-  ${offset  25}${voffset 70}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=12}${color #FFFFFF}CPU
-  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=9}
+  ${offset  25}${voffset 70}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=12}${color #FFFFFF}CPU
+  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=9}
   ${offset  140}${voffset  30}${color0}${exec sensors | grep -o 'Core 0:        +[0-9].' | sed -r 's/0:|[^0-9]//g'}°
   ${offset  175}${voffset -12}${color1}${exec sensors | grep -o 'Core 1:        +[0-9].' | sed -r 's/1:|[^0-9]//g'}°
   ${offset  210}${voffset -12}${color2}${exec sensors | grep -o 'Core 2:        +[0-9].' | sed -r 's/2:|[^0-9]//g'}°
   ${offset  250}${voffset -14}${color3}${exec sensors | grep -o 'Core 3:        +[0-9].' | sed -r 's/3:|[^0-9]//g'}°
-  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=10}
+  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=10}
   ${if_existing /sys/class/power_supply/BAT0/present} ${offset  225}${voffset 30}${color}Battery
   ${else}
   ${if_existing /sys/class/power_supply/BAT1/present} ${offset  225}${voffset 30}${color}Battery
@@ -92,15 +92,15 @@ conky.text = [[${font ubuntu Mono:size=12}
   #Battery status: Not present
   #External power: ${acpiacadapter}${endif}
 
-  ${goto 20}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=10}${color0}RAM
-  ${goto 20}${color #FFFFFF}$mem/$memmax${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=8}${color cccccc}($memperc%)
-  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=10}
+  ${goto 20}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=10}${color0}RAM
+  ${goto 20}${color #FFFFFF}$mem/$memmax${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=8}${color cccccc}($memperc%)
+  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=10}
   ${goto 20}${color0}STORAGE${color #FFFFFF}
-  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=8}
+  ${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=8}
   ${goto 20}${exec df -h | grep "/dev/sda7" | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
   ${goto 20}${exec df -h | grep "/dev/sdb1" | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
   ${goto 20}${exec df -h | grep "/dev/sda4"      | awk '{ printf "%s of %s \t %s\n", $5, $2, $6 }' }
-  ${color0}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold:size=10}
+  ${color0}${font Ubuntu Mono Bold Bold Bold Bold Bold Bold Bold Bold Bold:size=10}
   ${goto 20}Name ${goto 200}Pid${goto 280}Cpu%${goto 360}Mem%${color}
   ${goto 20}${top name 1} ${goto 185}${top pid 1}${goto 255}${top cpu 1}${goto 335}${top mem 1}
   ${goto 20}${top name 2} ${goto 185}${top pid 2}${goto 255}${top cpu 2}${goto 335}${top mem 2}
