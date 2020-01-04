@@ -25,6 +25,7 @@ In the following image the result:
 
 - Some text misplace QHD
 - Network data and information
+- Auto-Selection of the type of connection used (Wifi or Ethernet)
 - Cpu temperatures
 - Bar temperatures
 - Localization of Storage information
