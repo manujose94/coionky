@@ -21,7 +21,7 @@ fi
 #   THEME
 #
 #Choose theme green,blue,dark,purple
-echo -n "[2] Dou you want change the current theme ($theme) (green,red,dark,purple,daftpunk)[Enter to ignore]: " 
+echo -n "[2] Dou you want change the current theme ($theme) (green,red,dark,purple,blue,daftpunk)[Enter to ignore]: " 
 read colortheme 
 if [ "$colortheme" == "" ] ;then
 	echo "Color default theme $theme applied"
@@ -75,6 +75,20 @@ else
         sed -i 's/cpu2 =.*/cpu2 = 0xff0056/g' rings.lua
         sed -i 's/cpu3 =.*/cpu3 = 0xff0096/g' rings.lua
         sed -i 's/^\gpu =.*/gpu = 0xff0056/g' rings.lua
+      ;;
+	blue)
+        sed -i 's/color0 =.*/color0 = "0c213f",/g' .conkyrc
+        sed -i 's/color1 =.*/color1 = "1d3344",/g' .conkyrc
+        sed -i 's/color2 =.*/color2 = "24415b",/g' .conkyrc
+        sed -i 's/color3 =.*/color3 = "9cb8d7",/g' .conkyrc
+	   sed -i 's/Ubuntu Mono/Ubuntu Mono Bold/g' .conkyrc
+
+
+        sed -i 's/cpu0 =.*/cpu0 = 0x0c213f/g' rings.lua
+        sed -i 's/cpu1 =.*/cpu1 = 0x1d3344/g' rings.lua 
+        sed -i 's/cpu2 =.*/cpu2 = 0x24415b/g' rings.lua
+        sed -i 's/cpu3 =.*/cpu3 = 0x9cb8d7/g' rings.lua
+        sed -i 's/^\gpu =.*/gpu = 0x3f5c89/g' rings.lua
       ;;
 	daftpunk)
         sed -i 's/color0 =.*/color0 = "ff9200",/g' .conkyrc

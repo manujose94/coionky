@@ -13,5 +13,8 @@
 ### Purple
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/purple.png)
 
+### Blue
+![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/blue.png)
+
 ### Green
 ![Screenshots](https://github.com/manujose94/coionky/blob/master/themes_already_applied/green.png)

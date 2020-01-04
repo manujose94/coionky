@@ -1,9 +1,9 @@
 
-cpu0 = 0xff9200
-cpu1 = 0xefa31d
-cpu2 = 0x883f94
-cpu3 = 0xdd9d8a
-gpu = 0x883f94
+cpu0 = 0x0c213f
+cpu1 = 0x1d3344
+cpu2 = 0x24415b
+cpu3 = 0x9cb8d7
+gpu = 0x3f5c89
 cpu_x = 100
 cpu_y = 260
 
@@ -150,7 +150,9 @@ function DrawBars (cr,is_gpu,start_x,start_y,bar_width,bar_height,corenum,r,g,b)
   else
 	value = tonumber(conky_parse(string.format("${exec sensors | sed -rn 's/.*Core %s:\\s+.([0-9]+).*/\\1/p'}",corenum)))
   end
-	
+  
+  if value==nil then return end
+
   -- IF TEMP BARS DO NOT SHOW, try commenting the line above with '--' and uncommenting the line below by removing '--'. (Thanks to /u/IAmAFedora)
   --value = tonumber(conky_parse(string.format("${exec sensors | grep -o 'Core %s:         +[0-9].' | sed -r 's/%s:|[^0-9]//g'}",corenum,corenum)))
   max_value=100
@@ -169,6 +171,7 @@ function conky_rings()
        -- print(pt['arg'])
         str=string.format('${%s %s}',pt['name'],pt['arg'])
         str=conky_parse(str)
+        if value==nil then return end
         value=tonumber(str)
         pct=value/pt['max']
         
